@@ -1,14 +1,11 @@
-FROM ubuntu:zesty
+FROM alpine:latest
 MAINTAINER vincent@vin0x64.fr
 
-RUN apt-get -q update && apt-get --no-install-recommends install -y squid && \
-	mkdir /etc/squid/ssl && \
-	apt-get clean && \
-	rm -rf /var/lib/apt/lists/* 
+RUN apk add --update squid && \
+	rm -rf /var/cache/apk/*
 
 COPY squid.conf /etc/squid/squid.conf
 COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 8080/tcp
 
