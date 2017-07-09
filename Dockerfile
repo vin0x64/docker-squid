@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER vincent@vin0x64.fr
 
-RUN apk add --update squid && \
+RUN apk add --update tzdata squid && \
 	rm -rf /var/cache/apk/*
 
 COPY squid.conf /etc/squid/squid.conf
