@@ -1,6 +1,6 @@
 Docker Squid image
 
-Simple Docker image to run squid proxy based on ubuntu base image & package
+Simple Docker image to run squid proxy based on alpine linux base image & package
 
 How to run ?
 docker run --name=squid --restart=always --net=host  -d \
